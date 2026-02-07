@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Valentine ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #fff0f3, #ffe5ec);
+    color: #4a2c2a;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  section {
+    padding: 80px 20px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .yes {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  .yes:hover {
+    transform: scale(1.1);
+  }
+
+  .no {
+    background: #adb5bd;
+    color: white;
+    position: absolute;
+  }
+
+  /* Gallery */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+  }
+
+  .gallery img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  /* Date cards */
+  .dates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .date-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  /* Confetti */
+  .confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: pink;
+    top: -10px;
+    animation: fall 3s linear infinite;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(360deg);
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section>
+  <h1>Hey Bubbles 🩵</h1>
+  <p>
+    I wanted to do something special for you…  
+    something that shows how much you truly mean to me.
+  </p>
+</section>
+
+<!-- WHY YOU -->
+<section>
+  <h1>Why You?</h1>
+  <p>
+    We are meant to be.  
+    We get the best version of ourselves when we are together.  
+    You are my home. You have always been my home.
+  </p>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <h1>Us 💕</h1>
+  <p>Some of my favourite memories with you</p>
+
+  <div class="gallery">
+    <!-- Replace image names with your own -->
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <img src="photo4.jpg">
+  </div>
+</section>
+
+<!-- DATE IDEAS -->
+<section>
+  <h1>Future Dates I Owe You 😌</h1>
+
+  <div class="dates">
+    <div class="date-card">🍝 Dinner dates together</div>
+    <div class="date-card">🎬 Movie night + cuddles</div>
+    <div class="date-card">🌄 A spontaneous trip together</div>
+    <div class="date-card">☕ Spending hours talking & laughing</div>
+  </div>
+</section>
+
+<!-- BIG QUESTION -->
+<section style="position: relative; height: 300px;">
+  <h1>Will You Be My Valentine? 💘</h1>
+
+  <button class="btn yes" onclick="sayYes()">YES 💖</button>
+  <button class="btn no" id="noBtn">NO 🙄</button>
+</section>
+
+<script>
+  // NO button runs away
+  const noBtn = document.getElementById("noBtn");
+
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+  });
+
+  // YES clicked
+  function sayYes() {
+    createConfetti();
+    alert("YAY!! ❤️ I can’t wait to spend Valentine’s Day with you 💕");
+  }
+
+  // Confetti effect
+  function createConfetti() {
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * window.innerWidth + "px";
+      confetti.style.background = ["#ff4d6d","#ffd6e0","#ffc8dd"][Math.floor(Math.random()*3)];
+      confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
+      document.body.appendChild(confetti);
+
+      setTimeout(() => confetti.remove(), 3000);
+    }
+  }
+</script>
+
+</body>
+</html>
